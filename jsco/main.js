@@ -15280,7 +15280,7 @@ var Zn = b((oD, Px) => {
   });
   Ri.alloc || (Ri.alloc = function (e, t, r) {
     if (typeof e != "number") throw new TypeError("The \"size\" argument must be of type number. Received type " + typeof e);
-    if (e < 0 || e >= 2 * 1073741824) throw new RangeError("The value \"" + e + "\" is invalid for option \"size\"");
+    if (e < 0 || e >= 2147483648) throw new RangeError("The value \"" + e + "\" is invalid for option \"size\"");
     var i = Fi(e);
     return !t || t.length === 0 ? i.fill(0) : typeof r == "string" ? i.fill(t, r) : i.fill(t), i;
   });
@@ -19298,8 +19298,8 @@ var cw = b((NL, ow) => {
     HN = MN(25),
     sw = {
       maxFields: 1000,
-      maxFieldsSize: 20480 * 1024,
-      maxFileSize: 204800 * 1024,
+      maxFieldsSize: 20971520,
+      maxFileSize: 209715200,
       minFileSize: 1,
       allowEmptyFiles: !0,
       keepExtensions: !1,
@@ -20656,7 +20656,7 @@ var Gw = b((GL, Ww) => {
         multipart: !0,
         formidable: {
           keepExtensions: !0,
-          maxFileSize: 512000 * 1024 * 1024
+          maxFileSize: 524288000 * 1024
         }
       },
       filterRequest: {
