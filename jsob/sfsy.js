@@ -653,64 +653,58 @@ class _0x520715 extends _0x49bd9d {
         },
         json: _0x24fd72
       };
-      {
+      let {
+        result: _0x5a8803
+      } = await this.request(_0x1366a8.copy(_0x70e5bf));
+      if (_0x5a8803?.["success"]) {
         let {
-          result: _0x5a8803
-        } = await this.request(_0x1366a8.copy(_0x70e5bf));
-        if (_0x5a8803?.["success"]) {
-          let {
-            friendAwards = [],
-            gameNum = 0,
-            usableHoney: _0x4adf12,
-            capacity: _0x44b630
-          } = _0x5a8803?.["obj"];
-          friendAwards?.["length"] && this.log("获得奖励: " + _0x5a8803.obj.friendAwards.map(_0x1f5f24 => _0x1f5f24.name).join(","));
-          _0x4adf12 >= _0x44b630;
-          this.log("可以采蜜冒险" + gameNum + "次");
-          while (gameNum-- > 0) {
-            await this.bee_gameReport();
-          }
-          await this.bee_taskDetail();
-        } else {
-          const _0x55e075 = {
-            notify: true
-          };
-          this.log("进入采蜜游戏主页失败: " + (_0x5a8803?.["errorMessage"] || (_0x5a8803 ? JSON.stringify(_0x5a8803) : "无返回")), _0x55e075);
-          return;
+          friendAwards = [],
+          gameNum = 0,
+          usableHoney: _0x4adf12,
+          capacity: _0x44b630
+        } = _0x5a8803?.["obj"];
+        friendAwards?.["length"] && this.log("获得奖励: " + _0x5a8803.obj.friendAwards.map(_0x1f5f24 => _0x1f5f24.name).join(","));
+        _0x4adf12 >= _0x44b630;
+        this.log("可以采蜜冒险" + gameNum + "次");
+        while (gameNum-- > 0) {
+          await this.bee_gameReport();
         }
+        await this.bee_taskDetail();
+      } else {
+        const _0x55e075 = {
+          notify: true
+        };
+        this.log("进入采蜜游戏主页失败: " + (_0x5a8803?.["errorMessage"] || (_0x5a8803 ? JSON.stringify(_0x5a8803) : "无返回")), _0x55e075);
+        return;
       }
-      {
-        let {
-          result: _0x3038df
-        } = await this.request(_0x1366a8.copy(_0x70e5bf));
-        if (_0x3038df?.["success"]) {
-          for (let _0x55a541 of _0x3038df?.["obj"]?.["taskDetail"] || []) {
-            await this.bee_receiveHoney(_0x55a541);
-          }
-        } else {
-          const _0x293e24 = {
-            notify: true
-          };
-          this.log("进入采蜜游戏主页失败: " + (_0x3038df?.["errorMessage"] || (_0x3038df ? JSON.stringify(_0x3038df) : "无返回")), _0x293e24);
-          return;
+      let {
+        result: _0x3038df
+      } = await this.request(_0x1366a8.copy(_0x70e5bf));
+      if (_0x3038df?.["success"]) {
+        for (let _0x55a541 of _0x3038df?.["obj"]?.["taskDetail"] || []) {
+          await this.bee_receiveHoney(_0x55a541);
         }
+      } else {
+        const _0x293e24 = {
+          notify: true
+        };
+        this.log("进入采蜜游戏主页失败: " + (_0x3038df?.["errorMessage"] || (_0x3038df ? JSON.stringify(_0x3038df) : "无返回")), _0x293e24);
+        return;
       }
-      {
-        let {
-          result: _0x487fe5
-        } = await this.request(_0x1366a8.copy(_0x70e5bf));
-        if (_0x487fe5?.["success"]) {
-          const _0x36358e = {
-            notify: true
-          };
-          this.log("采蜜游戏丰蜜: " + (_0x487fe5?.["obj"]?.["usableHoney"] || 0), _0x36358e);
-        } else {
-          const _0xa7fe87 = {
-            notify: true
-          };
-          this.log("进入采蜜游戏主页失败: " + (_0x487fe5?.["errorMessage"] || (_0x487fe5 ? JSON.stringify(_0x487fe5) : "无返回")), _0xa7fe87);
-          return;
-        }
+      let {
+        result: _0x487fe5
+      } = await this.request(_0x1366a8.copy(_0x70e5bf));
+      if (_0x487fe5?.["success"]) {
+        const _0x36358e = {
+          notify: true
+        };
+        this.log("采蜜游戏丰蜜: " + (_0x487fe5?.["obj"]?.["usableHoney"] || 0), _0x36358e);
+      } else {
+        const _0xa7fe87 = {
+          notify: true
+        };
+        this.log("进入采蜜游戏主页失败: " + (_0x487fe5?.["errorMessage"] || (_0x487fe5 ? JSON.stringify(_0x487fe5) : "无返回")), _0xa7fe87);
+        return;
       }
     } catch (_0x531ea0) {
       console.log(_0x531ea0);
@@ -2329,51 +2323,47 @@ class _0x520715 extends _0x49bd9d {
         },
         json: {}
       };
-      {
-        let {
-          result: _0x15a017
-        } = await this.request(_0x216f6e);
-        if (_0x15a017?.["success"]) {
-          let _0x3bb718 = _0x15a017?.["obj"]?.["accountCurrencyList"] || [],
-            _0x543d3b = _0x3bb718.filter(_0x2d6ffe => _0x2d6ffe.currency == "UNBOX_CHANCE"),
-            _0x10be8b = _0x543d3b?.[0]?.["balance"] || 0;
-          this.log("可以拆" + _0x10be8b + "次盒子");
-          while (_0x10be8b-- > 0) {
-            await this.anniversary2024_unbox();
-          }
-        } else {
-          this.log("查询已收集拼图失败: " + (_0x15a017?.["errorMessage"] || (_0x15a017 ? JSON.stringify(_0x15a017) : "无返回")));
+      let {
+        result: _0x15a017
+      } = await this.request(_0x216f6e);
+      if (_0x15a017?.["success"]) {
+        let _0x3bb718 = _0x15a017?.["obj"]?.["accountCurrencyList"] || [],
+          _0x543d3b = _0x3bb718.filter(_0x2d6ffe => _0x2d6ffe.currency == "UNBOX_CHANCE"),
+          _0x10be8b = _0x543d3b?.[0]?.["balance"] || 0;
+        this.log("可以拆" + _0x10be8b + "次盒子");
+        while (_0x10be8b-- > 0) {
+          await this.anniversary2024_unbox();
         }
+      } else {
+        this.log("查询已收集拼图失败: " + (_0x15a017?.["errorMessage"] || (_0x15a017 ? JSON.stringify(_0x15a017) : "无返回")));
       }
-      {
-        let {
-          result: _0x31ee71
-        } = await this.request(_0x216f6e);
-        if (_0x31ee71?.["success"]) {
-          let _0x4f1e69 = _0x31ee71?.["obj"]?.["accountCurrencyList"] || [];
-          _0x4f1e69 = _0x4f1e69.filter(_0x230de4 => _0x230de4.currency != "UNBOX_CHANCE");
-          if (_0x4f1e69?.["length"]) {
-            this.cards = _0x4f1e69;
-            let _0x272029 = [];
-            for (let _0x5848e1 of this.cards) {
-              _0x272029.push("[" + _0x5848e1.currency + "]X" + _0x5848e1.balance);
-            }
-            const _0x10bb5c = {
-              notify: true
-            };
-            this.log("拼图: " + _0x272029.join(", "), _0x10bb5c);
-            this.cards.sort((_0xde8686, _0x11484c) => {
-              return _0x11484c.balance - _0xde8686.balance;
-            });
-          } else {
-            const _0x2d8b39 = {
-              notify: true
-            };
-            this.log("还没有收集到拼图", _0x2d8b39);
+      let {
+        result: _0x31ee71
+      } = await this.request(_0x216f6e);
+      if (_0x31ee71?.["success"]) {
+        let _0x4f1e69 = _0x31ee71?.["obj"]?.["accountCurrencyList"] || [];
+        _0x4f1e69 = _0x4f1e69.filter(_0x230de4 => _0x230de4.currency != "UNBOX_CHANCE");
+        if (_0x4f1e69?.["length"]) {
+          this.cards = _0x4f1e69;
+          let _0x272029 = [];
+          for (let _0x5848e1 of this.cards) {
+            _0x272029.push("[" + _0x5848e1.currency + "]X" + _0x5848e1.balance);
           }
+          const _0x10bb5c = {
+            notify: true
+          };
+          this.log("拼图: " + _0x272029.join(", "), _0x10bb5c);
+          this.cards.sort((_0xde8686, _0x11484c) => {
+            return _0x11484c.balance - _0xde8686.balance;
+          });
         } else {
-          this.log("查询已收集拼图失败: " + (_0x31ee71?.["errorMessage"] || (_0x31ee71 ? JSON.stringify(_0x31ee71) : "无返回")));
+          const _0x2d8b39 = {
+            notify: true
+          };
+          this.log("还没有收集到拼图", _0x2d8b39);
         }
+      } else {
+        this.log("查询已收集拼图失败: " + (_0x31ee71?.["errorMessage"] || (_0x31ee71 ? JSON.stringify(_0x31ee71) : "无返回")));
       }
     } catch (_0x2b5d24) {
       console.log(_0x2b5d24);
@@ -2778,50 +2768,46 @@ class _0x520715 extends _0x49bd9d {
         },
         json: {}
       };
-      {
-        let {
-          result: _0x228aed
-        } = await this.request(_0x2263bb);
-        if (_0x228aed?.["success"]) {
-          let _0x22768a = _0x228aed?.["obj"]?.["accountCurrencyList"] || [],
-            _0x181dd5 = _0x22768a.filter(_0x36fde3 => _0x36fde3.currency == "PUSH_TIMES"),
-            _0x45da5d = _0x181dd5?.[0]?.["balance"] || 0;
-          this.log("端午可以推" + _0x45da5d + "次金币");
-          while (_0x45da5d-- > 0) {
-            await this.dragonBoat2024_pushCoin();
-          }
-        } else {
-          this.log("端午查询推金币状态失败: " + (_0x228aed?.["errorMessage"] || (_0x228aed ? JSON.stringify(_0x228aed) : "无返回")));
+      let {
+        result: _0x228aed
+      } = await this.request(_0x2263bb);
+      if (_0x228aed?.["success"]) {
+        let _0x22768a = _0x228aed?.["obj"]?.["accountCurrencyList"] || [],
+          _0x181dd5 = _0x22768a.filter(_0x36fde3 => _0x36fde3.currency == "PUSH_TIMES"),
+          _0x45da5d = _0x181dd5?.[0]?.["balance"] || 0;
+        this.log("端午可以推" + _0x45da5d + "次金币");
+        while (_0x45da5d-- > 0) {
+          await this.dragonBoat2024_pushCoin();
         }
+      } else {
+        this.log("端午查询推金币状态失败: " + (_0x228aed?.["errorMessage"] || (_0x228aed ? JSON.stringify(_0x228aed) : "无返回")));
       }
-      {
+      let {
+        result: _0x19ac46
+      } = await this.request(_0x2263bb);
+      if (_0x19ac46?.["success"]) {
         let {
-          result: _0x19ac46
-        } = await this.request(_0x2263bb);
-        if (_0x19ac46?.["success"]) {
-          let {
-              accountCurrencyList = [],
-              pushedTimesToday: _0x554c56,
-              pushedTimesTotal: _0x3704cf
-            } = _0x19ac46?.["obj"],
-            _0x41ccf7 = this.dragonBoat2024_parse_item(accountCurrencyList),
-            _0x193048 = _0x41ccf7.filter(_0x1b8c4a => _0x1b8c4a.currency == "COIN"),
-            _0x1a16a2 = _0x41ccf7.filter(_0x18f904 => _0x18f904.currency == "RICH_CARD_GAME");
-          this.coin = _0x193048?.[0]?.["amount"] || 0;
-          this.rich_card = _0x1a16a2?.[0]?.["amount"] || 0;
-          const _0x35bbb2 = {
-            notify: true
-          };
-          this.log("端午金币: " + this.coin + ", 发财卡: " + this.rich_card, _0x35bbb2);
-          let _0x4ca2a9 = Math.floor(this.coin / 230),
-            _0x252cd5 = Math.min(_0x4ca2a9, this.rich_card);
-          this.log("端午可以抽发财卡池" + _0x252cd5 + "次");
-          while (_0x252cd5-- > 0) {
-            await this.dragonBoat2024_prizeDraw(4);
-          }
-        } else {
-          this.log("端午查询金币失败: " + (_0x19ac46?.["errorMessage"] || (_0x19ac46 ? JSON.stringify(_0x19ac46) : "无返回")));
+            accountCurrencyList = [],
+            pushedTimesToday: _0x554c56,
+            pushedTimesTotal: _0x3704cf
+          } = _0x19ac46?.["obj"],
+          _0x41ccf7 = this.dragonBoat2024_parse_item(accountCurrencyList),
+          _0x193048 = _0x41ccf7.filter(_0x1b8c4a => _0x1b8c4a.currency == "COIN"),
+          _0x1a16a2 = _0x41ccf7.filter(_0x18f904 => _0x18f904.currency == "RICH_CARD_GAME");
+        this.coin = _0x193048?.[0]?.["amount"] || 0;
+        this.rich_card = _0x1a16a2?.[0]?.["amount"] || 0;
+        const _0x35bbb2 = {
+          notify: true
+        };
+        this.log("端午金币: " + this.coin + ", 发财卡: " + this.rich_card, _0x35bbb2);
+        let _0x4ca2a9 = Math.floor(this.coin / 230),
+          _0x252cd5 = Math.min(_0x4ca2a9, this.rich_card);
+        this.log("端午可以抽发财卡池" + _0x252cd5 + "次");
+        while (_0x252cd5-- > 0) {
+          await this.dragonBoat2024_prizeDraw(4);
         }
+      } else {
+        this.log("端午查询金币失败: " + (_0x19ac46?.["errorMessage"] || (_0x19ac46 ? JSON.stringify(_0x19ac46) : "无返回")));
       }
     } catch (_0x328582) {
       console.log(_0x328582);

@@ -487,40 +487,36 @@ class _0x3f433d extends _0x280825 {
           para: this.encrypt_para(_0x34621e)
         }
       };
-      {
+      let {
+          result: _0x39cfe5,
+          statusCode: _0x5e556e
+        } = await this.request(_0x49dfef.copy(_0x16b897)),
+        _0x509ab0 = _0x49dfef.get(_0x39cfe5, "resoultCode", _0x5e556e);
+      if (_0x509ab0 == 0) {
         let {
-            result: _0x39cfe5,
-            statusCode: _0x5e556e
-          } = await this.request(_0x49dfef.copy(_0x16b897)),
-          _0x509ab0 = _0x49dfef.get(_0x39cfe5, "resoultCode", _0x5e556e);
-        if (_0x509ab0 == 0) {
-          let {
-            isSign: _0x1d403c
-          } = _0x39cfe5?.["data"];
-          _0x1d403c ? this.log("今天已签到") : await this.doSign();
-        } else {
-          let _0x11bda2 = _0x39cfe5?.["msg"] || _0x39cfe5?.["resoultMsg"] || _0x39cfe5?.["error"] || "";
-          this.log("查询账户签到状态错误[" + _0x509ab0 + "]: " + _0x11bda2);
-        }
+          isSign: _0x1d403c
+        } = _0x39cfe5?.["data"];
+        _0x1d403c ? this.log("今天已签到") : await this.doSign();
+      } else {
+        let _0x11bda2 = _0x39cfe5?.["msg"] || _0x39cfe5?.["resoultMsg"] || _0x39cfe5?.["error"] || "";
+        this.log("查询账户签到状态错误[" + _0x509ab0 + "]: " + _0x11bda2);
       }
-      {
+      let {
+          result: _0xf4c969,
+          statusCode: _0x34b777
+        } = await this.request(_0x49dfef.copy(_0x16b897)),
+        _0x4d9c85 = _0x49dfef.get(_0xf4c969, "resoultCode", _0x34b777);
+      if (_0x4d9c85 == 0) {
         let {
-            result: _0xf4c969,
-            statusCode: _0x34b777
-          } = await this.request(_0x49dfef.copy(_0x16b897)),
-          _0x4d9c85 = _0x49dfef.get(_0xf4c969, "resoultCode", _0x34b777);
-        if (_0x4d9c85 == 0) {
-          let {
-            continuousDay: _0x33365d,
-            signDay: _0x128cf2,
-            isSeven: _0x3fa455
-          } = _0xf4c969?.["data"];
-          this.log("已签到" + _0x128cf2 + "天, 连签" + _0x33365d + "天");
-          _0x3fa455 && (await this.exchangePrize());
-        } else {
-          let _0xc36b81 = _0xf4c969?.["msg"] || _0xf4c969?.["resoultMsg"] || _0xf4c969?.["error"] || "";
-          this.log("查询账户签到状态错误[" + _0x4d9c85 + "]: " + _0xc36b81);
-        }
+          continuousDay: _0x33365d,
+          signDay: _0x128cf2,
+          isSeven: _0x3fa455
+        } = _0xf4c969?.["data"];
+        this.log("已签到" + _0x128cf2 + "天, 连签" + _0x33365d + "天");
+        _0x3fa455 && (await this.exchangePrize());
+      } else {
+        let _0xc36b81 = _0xf4c969?.["msg"] || _0xf4c969?.["resoultMsg"] || _0xf4c969?.["error"] || "";
+        this.log("查询账户签到状态错误[" + _0x4d9c85 + "]: " + _0xc36b81);
       }
     } catch (_0x103f04) {
       console.log(_0x103f04);
@@ -903,42 +899,38 @@ class _0x3f433d extends _0x280825 {
           para: this.encrypt_para(_0x1138c3)
         }
       };
-      {
-        let {
-            result: _0x13b7df,
-            statusCode: _0x1e6dfd
-          } = await this.request(_0x2d8a6c),
-          _0x54514a = _0x49dfef.get(_0x13b7df, "resoultCode", _0x1e6dfd);
-        if (_0x54514a == 0) {
-          let _0xdb66c = _0x13b7df?.["userInfo"]?.["levelInfoMap"];
-          this.level = _0xdb66c?.["level"];
-          for (let _0x33d3a3 = 1; _0x33d3a3 <= 10 && this.can_feed; _0x33d3a3++) {
-            await this.food(_0x33d3a3);
-          }
-        } else {
-          let _0x4e4dd5 = _0x13b7df?.["msg"] || _0x13b7df?.["resoultMsg"] || _0x13b7df?.["error"] || "";
-          this.log("查询宠物等级失败[" + _0x54514a + "]: " + _0x4e4dd5);
-          return;
+      let {
+          result: _0x13b7df,
+          statusCode: _0x1e6dfd
+        } = await this.request(_0x2d8a6c),
+        _0x54514a = _0x49dfef.get(_0x13b7df, "resoultCode", _0x1e6dfd);
+      if (_0x54514a == 0) {
+        let _0xdb66c = _0x13b7df?.["userInfo"]?.["levelInfoMap"];
+        this.level = _0xdb66c?.["level"];
+        for (let _0x33d3a3 = 1; _0x33d3a3 <= 10 && this.can_feed; _0x33d3a3++) {
+          await this.food(_0x33d3a3);
         }
+      } else {
+        let _0x4e4dd5 = _0x13b7df?.["msg"] || _0x13b7df?.["resoultMsg"] || _0x13b7df?.["error"] || "";
+        this.log("查询宠物等级失败[" + _0x54514a + "]: " + _0x4e4dd5);
+        return;
       }
-      {
-        let {
-            result: _0x1334dd,
-            statusCode: _0x363378
-          } = await this.request(_0x2d8a6c),
-          _0xf71230 = _0x49dfef.get(_0x1334dd, "resoultCode", _0x363378);
-        if (_0xf71230 == 0) {
-          let _0x41df23 = _0x1334dd?.["userInfo"]?.["levelInfoMap"];
-          this.level = _0x41df23?.["level"];
-          const _0x268241 = {
-            notify: true
-          };
-          this.log("宠物等级[Lv." + _0x41df23?.["level"] + "], 升级进度: " + _0x41df23?.["growthValue"] + "/" + _0x41df23?.["fullGrowthCoinValue"], _0x268241);
-        } else {
-          let _0x1036a5 = _0x1334dd?.["msg"] || _0x1334dd?.["resoultMsg"] || _0x1334dd?.["error"] || "";
-          this.log("查询宠物等级失败[" + _0xf71230 + "]: " + _0x1036a5);
-          return;
-        }
+      let {
+          result: _0x1334dd,
+          statusCode: _0x363378
+        } = await this.request(_0x2d8a6c),
+        _0xf71230 = _0x49dfef.get(_0x1334dd, "resoultCode", _0x363378);
+      if (_0xf71230 == 0) {
+        let _0x41df23 = _0x1334dd?.["userInfo"]?.["levelInfoMap"];
+        this.level = _0x41df23?.["level"];
+        const _0x268241 = {
+          notify: true
+        };
+        this.log("宠物等级[Lv." + _0x41df23?.["level"] + "], 升级进度: " + _0x41df23?.["growthValue"] + "/" + _0x41df23?.["fullGrowthCoinValue"], _0x268241);
+      } else {
+        let _0x1036a5 = _0x1334dd?.["msg"] || _0x1334dd?.["resoultMsg"] || _0x1334dd?.["error"] || "";
+        this.log("查询宠物等级失败[" + _0xf71230 + "]: " + _0x1036a5);
+        return;
       }
     } catch (_0x94c5b4) {
       console.log(_0x94c5b4);

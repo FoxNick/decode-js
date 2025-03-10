@@ -3115,63 +3115,57 @@ class _0x333e45 extends _0x24046c {
         method: "get",
         url: "https://activity.10010.com/2024517charges/lottery/userAccount"
       };
-      {
-        let {
-            result: _0x12e6e7,
-            statusCode: _0x24ba47
-          } = await this.request(_0x4c672b.copy(_0x52d1fe)),
-          _0x3f7586 = _0x4c672b.get(_0x12e6e7, "code", _0x24ba47);
-        if (_0x3f7586 == "0000") {
-          await this.act_517_taskList();
-        } else {
-          let _0xa39ecd = _0x12e6e7?.["message"] || _0x12e6e7?.["msg"] || "";
-          this.log("517活动进入主页失败[" + _0x3f7586 + "]: " + _0xa39ecd);
-          return;
-        }
+      let {
+          result: _0x12e6e7,
+          statusCode: _0x24ba47
+        } = await this.request(_0x4c672b.copy(_0x52d1fe)),
+        _0x3f7586 = _0x4c672b.get(_0x12e6e7, "code", _0x24ba47);
+      if (_0x3f7586 == "0000") {
+        await this.act_517_taskList();
+      } else {
+        let _0xa39ecd = _0x12e6e7?.["message"] || _0x12e6e7?.["msg"] || "";
+        this.log("517活动进入主页失败[" + _0x3f7586 + "]: " + _0xa39ecd);
+        return;
       }
-      {
+      let {
+          result: _0x2d9fa8,
+          statusCode: _0x40643e
+        } = await this.request(_0x4c672b.copy(_0x52d1fe)),
+        _0x5caf5e = _0x4c672b.get(_0x2d9fa8, "code", _0x40643e);
+      if (_0x5caf5e == "0000") {
         let {
-            result: _0x2d9fa8,
-            statusCode: _0x40643e
-          } = await this.request(_0x4c672b.copy(_0x52d1fe)),
-          _0x5caf5e = _0x4c672b.get(_0x2d9fa8, "code", _0x40643e);
-        if (_0x5caf5e == "0000") {
-          let {
-            chances: _0xb8ead9
-          } = _0x2d9fa8?.["data"];
-          this.log("517活动可以抽奖" + _0xb8ead9 + "次");
-          let _0x4a90fa = false;
-          while (_0xb8ead9-- > 0) {
-            if (_0x4a90fa) {
-              await _0x4c672b.wait(3000);
-            }
-            _0x4a90fa = true;
-            await this.act_517_lottery();
+          chances: _0xb8ead9
+        } = _0x2d9fa8?.["data"];
+        this.log("517活动可以抽奖" + _0xb8ead9 + "次");
+        let _0x4a90fa = false;
+        while (_0xb8ead9-- > 0) {
+          if (_0x4a90fa) {
+            await _0x4c672b.wait(3000);
           }
-        } else {
-          let _0x401062 = _0x2d9fa8?.["message"] || _0x2d9fa8?.["msg"] || "";
-          this.log("517活动查询抽奖次数失败[" + _0x5caf5e + "]: " + _0x401062);
+          _0x4a90fa = true;
+          await this.act_517_lottery();
         }
+      } else {
+        let _0x401062 = _0x2d9fa8?.["message"] || _0x2d9fa8?.["msg"] || "";
+        this.log("517活动查询抽奖次数失败[" + _0x5caf5e + "]: " + _0x401062);
       }
-      {
+      let {
+          result: _0x112b84,
+          statusCode: _0x3d9692
+        } = await this.request(_0x4c672b.copy(_0x52d1fe)),
+        _0x164969 = _0x4c672b.get(_0x112b84, "code", _0x3d9692);
+      if (_0x164969 == "0000") {
         let {
-            result: _0x112b84,
-            statusCode: _0x3d9692
-          } = await this.request(_0x4c672b.copy(_0x52d1fe)),
-          _0x164969 = _0x4c672b.get(_0x112b84, "code", _0x3d9692);
-        if (_0x164969 == "0000") {
-          let {
-            amount: _0x1053c0,
-            targetAmount: _0x248ecd
-          } = _0x112b84?.["data"];
-          const _0x3dbd45 = {
-            notify: true
-          };
-          this.log("517活动现金进度: " + _0x1053c0 + "/" + _0x248ecd, _0x3dbd45);
-        } else {
-          let _0x53c12d = _0x112b84?.["message"] || _0x112b84?.["msg"] || "";
-          this.log("517活动查询进度失败[" + _0x164969 + "]: " + _0x53c12d);
-        }
+          amount: _0x1053c0,
+          targetAmount: _0x248ecd
+        } = _0x112b84?.["data"];
+        const _0x3dbd45 = {
+          notify: true
+        };
+        this.log("517活动现金进度: " + _0x1053c0 + "/" + _0x248ecd, _0x3dbd45);
+      } else {
+        let _0x53c12d = _0x112b84?.["message"] || _0x112b84?.["msg"] || "";
+        this.log("517活动查询进度失败[" + _0x164969 + "]: " + _0x53c12d);
       }
     } catch (_0x55b6a1) {
       console.log(_0x55b6a1);
