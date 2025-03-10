@@ -1,12 +1,12 @@
-﻿const fs = require('fs')
-const path = require('path');
-const PluginCommon = require('./plugin/common.js')
-const PluginJjencode = require('./plugin/jjencode.js')
-const PluginSojson = require('./plugin/sojson.js')
-const PluginSojsonV7 = require('./plugin/sojsonv7.js')
-const PluginObfuscator = require('./plugin/obfuscator.js')
-const PluginAwsc = require('./plugin/awsc.js');
-const common = require('./plugin/common.js');
+import fs from 'fs';
+import path from 'path';
+import PluginCommon from './plugin/common.js';
+import PluginJjencode from './plugin/jjencode.js';
+import PluginSojson from './plugin/sojson.js';
+import PluginSojsonV7 from './plugin/sojsonv7.js';
+import PluginObfuscator from './plugin/obfuscator.js';
+import PluginAwsc from './plugin/awsc.js';
+import common from './plugin/common.js';
 
 
 const folderPath = './jsob';
